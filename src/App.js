@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import NavBar from './components/Navbar/NavBar';
+import Filter from './components/Filter/Filter';
+import { useState } from 'react';
+
+
 
 function App() {
+  const [ratingChange,setRatingChange]=useState(1);
+  const[searchInput,setSearchInput]=useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+     <NavBar ratingChange={ratingChange}
+      setRatingChange={setRatingChange}
+      setSearchInput={setSearchInput}
+     />
+     <Filter  
+      ratingChange={ratingChange}
+      setSearchInput={setSearchInput}
+      searchInput={searchInput}
+      />
+     
     </div>
   );
 }
