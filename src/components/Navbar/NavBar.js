@@ -6,21 +6,30 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ReactStars from "react-rating-stars-component";
 import './NavBar.css'
+import Button from 'react-bootstrap/Button';
+import Addmovies from '../addmovies/Addmovies';
 
 
 
-function NavBar({setRatingChange,setSearchInput,ratingChange}) {
+
+function NavBar({setRatingChange,setSearchInput,ratingChange,newMovie,setNewmovie,handleSave,show,handleClose,setShow}) {
+ 
+  const handleShow = () => setShow(true);
  
   const ratingChanged = (rating)=>{
     setRatingChange(rating);
 
+  
   }
+
  
   
   const handleChange= (e)=>{
     setSearchInput(e.target.value)
 
   }
+  
+ 
   return (
     <div>
    
@@ -32,11 +41,13 @@ function NavBar({setRatingChange,setSearchInput,ratingChange}) {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
+            <Button variant="light"onClick={handleShow} >Add new movie</Button>{' '}
           </Nav>
       
         </Navbar.Collapse>
      
       </Container>
+       
       <InputGroup className="mb-3">
         <InputGroup.Text id="inputGroup-sizing-default">
           Search
@@ -60,6 +71,8 @@ function NavBar({setRatingChange,setSearchInput,ratingChange}) {
         
         
     </Navbar>
+    <Addmovies show={show} handleClose={handleClose} newMovie={newMovie}  setNewmovie={setNewmovie} handleSave={handleSave}/>
+    
 
 
 </div>
