@@ -2,18 +2,17 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 function Moviecars({ movie} ) {
   return (
-    <div>{
+    <div >{
               <>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={movie.posterUrl} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
-        <Card.Text>
-         {movie.Description}
-        </Card.Text>
+        <Card.Text> {movie.Description}</Card.Text>
         <ReactStars
   count={5}
   //onChange={ratingChanged}
@@ -22,6 +21,8 @@ function Moviecars({ movie} ) {
   edit={false}
   value={movie.rating}
 />
+<Link to ={`/movies-details/${movie.id}`}>
+<Button variant="secondary" > Movie trailer </Button></Link>
       </Card.Body>
             </Card>
   

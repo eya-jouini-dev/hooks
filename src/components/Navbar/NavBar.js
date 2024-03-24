@@ -8,11 +8,12 @@ import ReactStars from "react-rating-stars-component";
 import './NavBar.css'
 import Button from 'react-bootstrap/Button';
 import Addmovies from '../addmovies/Addmovies';
+import { Link } from 'react-router-dom';
 
 
 
 
-function NavBar({setRatingChange,setSearchInput,ratingChange,newMovie,setNewmovie,handleSave,show,handleClose,setShow}) {
+function NavBar({setRatingChange,setSearchInput,ratingChange,newMovie,setNewmovie,handleSave,show,setShow ,handleClose}) {
  
   const handleShow = () => setShow(true);
  
@@ -39,8 +40,8 @@ function NavBar({setRatingChange,setSearchInput,ratingChange,newMovie,setNewmovi
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link ><Link to="/home">home</Link></Nav.Link>
+            <Nav.Link ><Link to="/movies-details">Movies Details</Link></Nav.Link>
             <Button variant="light"onClick={handleShow} >Add new movie</Button>{' '}
           </Nav>
       
